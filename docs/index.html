@@ -4,26 +4,110 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Castmorphic Subtitles: download YouTube subtitles, not the video</title>
-<meta name="description" content="A tiny Linux desktop app that downloads a YouTube video's subtitles in SRT, VTT, TXT, or Raw format. The video itself is never fetched." />
+<meta name="description" content="A free Linux desktop app that downloads a YouTube video's subtitles in SRT, VTT, TXT, or Raw format. The video itself is never fetched." />
+<link rel="canonical" href="https://subtitles.castmorphic.com/" />
+<meta name="theme-color" content="#ff5721" />
 <link rel="icon" href="images/favicon.png" />
+<link rel="preload" href="fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="style.css" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Castmorphic Subtitles" />
+<meta property="og:url" content="https://subtitles.castmorphic.com/" />
+<meta property="og:title" content="Castmorphic Subtitles: download YouTube subtitles, not the video" />
+<meta property="og:description" content="A free Linux desktop app that downloads a YouTube video's subtitles in SRT, VTT, TXT, or Raw format. The video itself is never fetched." />
+<meta property="og:image" content="https://subtitles.castmorphic.com/images/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Castmorphic Subtitles: get the subtitles, skip the video." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Castmorphic Subtitles: download YouTube subtitles, not the video" />
+<meta name="twitter:description" content="A free Linux desktop app that downloads a YouTube video's subtitles in SRT, VTT, TXT, or Raw format. The video itself is never fetched." />
+<meta name="twitter:image" content="https://subtitles.castmorphic.com/images/og.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://subtitles.castmorphic.com/#app",
+      "name": "Castmorphic Subtitles",
+      "url": "https://subtitles.castmorphic.com/",
+      "description": "A Linux desktop app that downloads a YouTube video's subtitles in SRT, VTT, TXT, or Raw format. The video itself is never downloaded.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Linux",
+      "softwareVersion": "1.0.0",
+      "downloadUrl": "https://github.com/lightmorphic/castmorphic-subtitles/releases/latest/download/castmorphic-subtitles-x86_64.AppImage",
+      "softwareRequirements": "Linux with python3 3.10 or newer",
+      "screenshot": "https://subtitles.castmorphic.com/images/screenshot-dark.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "publisher": { "@id": "https://castmorphic.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://castmorphic.com/#org",
+      "name": "Castmorphic",
+      "url": "https://castmorphic.com",
+      "description": "Hosted podcasting from Lightmorphic."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://subtitles.castmorphic.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does it download the video as well?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Only the subtitle track is fetched. Skipping the video download is hardcoded on in the app and cannot be switched off, so nothing large is ever requested from YouTube or stored on your machine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What subtitle formats can it save?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four. SRT is the standard timestamped subtitle file. VTT is WebVTT, which web video players expect. TXT is a plain transcript with the timestamps stripped out. Raw is whatever YouTube served, unconverted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it need installed to run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only python3, version 3.10 or newer, which current Linux desktops already ship. The window, the browser engine and the Python packages all travel inside the AppImage, so there is nothing to install and no Docker or account involved."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<nav class="site-nav">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Main">
   <a class="nav-brand" href="#top">
-    <img src="images/favicon.png" alt="" />
+    <img src="images/favicon.png" alt="" width="28" height="28" />
     Castmorphic Subtitles
   </a>
   <div class="nav-links">
     <a href="#features" class="nav-label">Features</a>
     <a href="#formats" class="nav-label">Formats</a>
+    <a href="#faq" class="nav-label">FAQ</a>
     <a href="https://github.com/lightmorphic/castmorphic-subtitles" class="nav-label">GitHub</a>
     <a href="#download" class="nav-cta">Download</a>
   </div>
 </nav>
 
-<main>
+<main id="main">
 
   <section class="hero" id="top">
     <div class="hero-grid">
@@ -41,7 +125,10 @@
         </div>
       </div>
       <div class="hero-shot">
-        <img src="images/screenshot-dark.png" alt="Castmorphic Subtitles showing a fetched video's language list on the left and format picker with an SRT, VTT, TXT, and Raw choice on the right" width="1760" height="1200" />
+        <picture>
+          <source srcset="images/screenshot-dark.webp" type="image/webp" />
+          <img src="images/screenshot-dark.png" alt="Castmorphic Subtitles showing a fetched video's language list on the left and format picker with an SRT, VTT, TXT, and Raw choice on the right" width="1760" height="1200" fetchpriority="high" decoding="async" />
+        </picture>
       </div>
     </div>
   </section>
@@ -52,28 +139,28 @@
     <div class="feature-grid">
       <div class="feature">
         <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         </div>
         <h3>Subtitles only</h3>
         <p>The video track is never requested from YouTube. Nothing to wait for, nothing large to store.</p>
       </div>
       <div class="feature">
         <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
         <h3>English listed first</h3>
         <p>Every available language shows up, manual and auto-generated tracks both included, English sorted to the top.</p>
       </div>
       <div class="feature">
         <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
         </div>
         <h3>Keeps itself current</h3>
-        <p>Checks yt-dlp and its own version on a schedule. When YouTube changes something, an update is one click away.</p>
+        <p>Checks yt-dlp and its own version every time it starts. When YouTube changes something, an update is one click away.</p>
       </div>
       <div class="feature">
         <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </div>
         <h3>Light and dark</h3>
         <p>Follows the desktop by default, with a toggle if it guesses wrong.</p>
@@ -104,20 +191,46 @@
     </div>
   </section>
 
+  <section id="faq">
+    <h2>Questions</h2>
+    <div class="faq">
+      <h3>Does it download the video as well?</h3>
+      <p>
+        No. Only the subtitle track is fetched. Skipping the video download is
+        hardcoded on in the app and cannot be switched off, so nothing large is
+        ever requested from YouTube or stored on your machine.
+      </p>
+
+      <h3>What subtitle formats can it save?</h3>
+      <p>
+        Four. SRT is the standard timestamped subtitle file. VTT is WebVTT,
+        which web video players expect. TXT is a plain transcript with the
+        timestamps stripped out. Raw is whatever YouTube served, unconverted.
+      </p>
+
+      <h3>What does it need installed to run?</h3>
+      <p>
+        Only <code>python3</code>, version 3.10 or newer, which current Linux
+        desktops already ship. The window, the browser engine and the Python
+        packages all travel inside the AppImage, so there is nothing to install
+        and no Docker or account involved.
+      </p>
+    </div>
+  </section>
+
   <section id="download">
     <div class="download-panel">
       <h2>Download Castmorphic Subtitles</h2>
-      <p class="lede" style="margin:0 auto">Single AppImage. No install, no Docker, no account.</p>
-      <div class="cta-row" style="justify-content:center; margin-top:24px">
+      <p class="lede panel-lede">Single AppImage. No install, no Docker, no account.</p>
+      <div class="cta-row panel-cta">
         <a class="btn primary" href="https://github.com/lightmorphic/castmorphic-subtitles/releases/latest/download/castmorphic-subtitles-x86_64.AppImage">Download for Linux</a>
       </div>
       <div class="requirements">
         Self-contained: the window, the browser engine and the Python
         packages all ship inside the AppImage. Needs only
         <code>python3</code> (3.10+), which every current Linux desktop
-        already has. Nothing to install.
-        Already present on most GNOME-based desktops. Full details and
-        source on the <a href="https://github.com/lightmorphic/castmorphic-subtitles">GitHub repo</a>.
+        already has. Full details and source on the
+        <a href="https://github.com/lightmorphic/castmorphic-subtitles">GitHub repo</a>.
       </div>
     </div>
   </section>
