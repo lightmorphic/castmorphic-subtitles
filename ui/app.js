@@ -62,7 +62,7 @@ async function updateYtdlp() {
     const result = await window.pywebview.api.update_ytdlp();
     if (result.ok) {
       badge.className = "ytdlp-badge ok";
-      badge.textContent = "Updated, restart YT Subs to use the new version";
+      badge.textContent = "Updated, restart Castmorphic Subtitles to use the new version";
     } else {
       badge.className = "ytdlp-badge err";
       badge.textContent = `Update failed: ${result.error || "unknown error"}`;

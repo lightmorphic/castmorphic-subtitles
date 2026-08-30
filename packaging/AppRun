@@ -23,15 +23,15 @@ dialog_tool() {
 
 show_message() {
   case "$(dialog_tool)" in
-    zenity) zenity --error --title="YT Subs" --width=360 --text="$1" ;;
-    kdialog) kdialog --title "YT Subs" --error "$1" ;;
+    zenity) zenity --error --title="Castmorphic Subtitles" --width=360 --text="$1" ;;
+    kdialog) kdialog --title "Castmorphic Subtitles" --error "$1" ;;
     xmessage) xmessage -center "$1" ;;
     *) echo "$1" >&2 ;;
   esac
 }
 
 if [ -z "$PY" ] || ! "$PY" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)' 2>/dev/null; then
-  show_message "YT Subs needs Python 3.10 or newer on this system.\n\nEvery current Linux desktop ships one; if yours doesn't, install your distribution's python3 package."
+  show_message "Castmorphic Subtitles needs Python 3.10 or newer on this system.\n\nEvery current Linux desktop ships one; if yours doesn't, install your distribution's python3 package."
   exit 1
 fi
 

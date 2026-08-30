@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=YT Subs
+Name=Castmorphic Subtitles
 Comment=Download YouTube subtitles only, in any available language
 Exec=AppRun %u
-Icon=ytsubs
+Icon=castmorphic-subtitles
 Categories=Utility;AudioVideo;
 Terminal=false

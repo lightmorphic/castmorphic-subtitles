@@ -13,11 +13,11 @@
   --border: #e4e4e7;  --muted: #f4f4f5;  --muted-fg: #71717a;
   --shadow-panel: 0 1px 2px rgba(24,24,40,.05), 0 8px 24px -16px rgba(24,24,40,.18);
 
-  --accent: #fbc711;  --accent-hover: #ddaf0f;  --on-accent: #645007;
-  --accent-container: #fff8e2;  --on-accent-container: #5f4c06;
+  --accent: #ff5721;  --accent-hover: #e04d1d;  --on-accent: #471809;
+  --accent-container: #ffebe4;  --on-accent-container: #61210d;
 
   --brand-navy: #111827;
-  --link: #1b74bc;
+  --link: #c4400f;
   --danger: #cc372d;   --danger-bg: #fef2f1;
   --success: #38813a;  --success-bg: #f2f9f3;
   --warning: #8f6c03;  --warning-bg: #fffbee;
@@ -33,8 +33,9 @@
     --panel: #1b1d29;  --panel-border: rgba(255,255,255,.09);
     --border: #27272a;  --muted: #1c1c1f;  --muted-fg: #a1a1aa;
     --shadow-panel: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px -16px rgba(0,0,0,.6);
-    --accent-container: #4b3c05;  --on-accent-container: #fde694;
-    --link: #2295f1;
+    --accent-hover: #ff6b3c;
+    --accent-container: #4d1a0a;  --on-accent-container: #ffb39b;
+    --link: #ff8f68;
     --danger: #f34236;   --danger-bg: #350f0c;
     --success: #4bae4f;  --success-bg: #102611;
     --warning: #ffc006;  --warning-bg: #382a01;
@@ -49,8 +50,8 @@
   --panel: #ffffff;  --panel-border: rgba(24, 24, 40, 0.10);
   --border: #e4e4e7;  --muted: #f4f4f5;  --muted-fg: #71717a;
   --shadow-panel: 0 1px 2px rgba(24,24,40,.05), 0 8px 24px -16px rgba(24,24,40,.18);
-  --accent-container: #fff8e2;  --on-accent-container: #5f4c06;
-  --link: #1b74bc;
+  --accent-container: #ffebe4;  --on-accent-container: #61210d;
+  --link: #c4400f;
   --danger: #cc372d;   --danger-bg: #fef2f1;
   --success: #38813a;  --success-bg: #f2f9f3;
   --warning: #8f6c03;  --warning-bg: #fffbee;
@@ -63,8 +64,9 @@
   --panel: #1b1d29;  --panel-border: rgba(255,255,255,.09);
   --border: #27272a;  --muted: #1c1c1f;  --muted-fg: #a1a1aa;
   --shadow-panel: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px -16px rgba(0,0,0,.6);
-  --accent-container: #4b3c05;  --on-accent-container: #fde694;
-  --link: #2295f1;
+  --accent-hover: #ff6b3c;
+  --accent-container: #4d1a0a;  --on-accent-container: #ffb39b;
+  --link: #ff8f68;
   --danger: #f34236;   --danger-bg: #350f0c;
   --success: #4bae4f;  --success-bg: #102611;
   --warning: #ffc006;  --warning-bg: #382a01;
@@ -276,9 +278,12 @@ h1 {
   color: var(--muted-fg);
   background: var(--muted);
 }
-.ytdlp-badge.ok { color: var(--success); background: var(--success-bg); border-color: transparent; }
-.ytdlp-badge.stale { color: var(--warning); background: var(--warning-bg); border-color: transparent; }
-.ytdlp-badge.err { color: var(--danger); background: var(--danger-bg); border-color: transparent; }
+/* Castmorphic's rule: state is carried by the words and their colour, not
+   by a green or red panel behind them. The badge keeps one neutral shape
+   whatever it is saying. */
+.ytdlp-badge.ok { color: var(--success); }
+.ytdlp-badge.stale { color: var(--warning); }
+.ytdlp-badge.err { color: var(--danger); }
 .ytdlp-badge button {
   font: inherit;
   font-weight: 700;
@@ -404,9 +409,12 @@ button.secondary:hover { background: var(--border); }
   word-break: break-word;
 }
 .status.show { display: block; }
-.status.info { background: var(--info-bg); color: var(--info); }
-.status.success { background: var(--success-bg); color: var(--success); }
-.status.error { background: var(--danger-bg); color: var(--danger); }
+/* Same rule as the yt-dlp badge: one neutral box, the colour lives in the
+   text. A filled green or red panel is not how the rest of Castmorphic
+   tells you what happened. */
+.status.info { background: var(--muted); color: var(--info); }
+.status.success { background: var(--muted); color: var(--success); }
+.status.error { background: var(--muted); color: var(--danger); }
 
 .format-list {
   display: flex;

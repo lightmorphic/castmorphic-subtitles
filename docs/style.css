@@ -13,11 +13,11 @@
   --border: #e4e4e7;  --muted: #f4f4f5;  --muted-fg: #71717a;
   --shadow-panel: 0 1px 2px rgba(24,24,40,.05), 0 8px 24px -16px rgba(24,24,40,.18);
 
-  --accent: #fbc711;  --accent-hover: #ddaf0f;  --on-accent: #645007;
-  --accent-container: #fff8e2;  --on-accent-container: #5f4c06;
+  --accent: #ff5721;  --accent-hover: #e04d1d;  --on-accent: #471809;
+  --accent-container: #ffebe4;  --on-accent-container: #61210d;
 
   --brand-navy: #111827;
-  --link: #1b74bc;
+  --link: #c4400f;
   --success: #38813a;  --success-bg: #f2f9f3;
 
   --radius: 0.875rem;
@@ -30,8 +30,9 @@
     --panel: #1b1d29;  --panel-border: rgba(255,255,255,.09);
     --border: #27272a;  --muted: #1c1c1f;  --muted-fg: #a1a1aa;
     --shadow-panel: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px -16px rgba(0,0,0,.6);
-    --accent-container: #4b3c05;  --on-accent-container: #fde694;
-    --link: #2295f1;
+    --accent-hover: #ff6b3c;
+    --accent-container: #4d1a0a;  --on-accent-container: #ffb39b;
+    --link: #ff8f68;
     --success: #4bae4f;  --success-bg: #102611;
   }
 }
@@ -268,4 +269,12 @@ footer a { color: var(--muted-fg); }
   .hero-grid { grid-template-columns: 1fr; }
   .nav-links a.nav-label { display: none; }
   h1 { font-size: 2.1rem; }
+}
+
+/* Ties the page back to the rest of the product without competing with
+   the download link above it. */
+footer .family {
+  margin-top: 0.35rem;
+  color: var(--muted-fg);
+  font-size: 0.9375rem;
 }

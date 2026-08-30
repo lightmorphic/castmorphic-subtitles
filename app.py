@@ -10,15 +10,15 @@ from pathlib import Path
 
 import webview
 
-APP_VERSION = "1.2.0"
-UPDATE_REPO = "lightmorphic/ytsubs"
+APP_VERSION = "1.0.0"
+UPDATE_REPO = "lightmorphic/castmorphic-subtitles"
 RELEASES_API = f"https://api.github.com/repos/{UPDATE_REPO}/releases/latest"
 # Every release publishes two assets: this stable name (what the updater
 # always fetches) and a version-stamped copy (for anyone grabbing a specific
 # release directly off the GitHub releases page).
-UPDATE_ASSET_NAME = "ytsubs-x86_64.AppImage"
+UPDATE_ASSET_NAME = "castmorphic-subtitles-x86_64.AppImage"
 
-APP_DIR = Path.home() / ".local" / "share" / "ytsubs"
+APP_DIR = Path.home() / ".local" / "share" / "castmorphic-subtitles"
 LIB_DIR = APP_DIR / "pylibs"
 LIB_DIR.mkdir(parents=True, exist_ok=True)
 PREFS_FILE = APP_DIR / "prefs.json"
@@ -102,7 +102,7 @@ _download_state = {"status": "idle", "error": None, "progress": 0.0}
 # to work, it just avoids the low, unauthenticated GitHub API rate limit.
 # Only ever found on the maintainer's own machine; everyone else's update
 # check runs unauthenticated, which works fine against a public repo.
-GITHUB_TOKEN_FILE = Path.home() / "9-Claude" / "Tokens" / "ytsubs-token"
+GITHUB_TOKEN_FILE = Path.home() / "9-Claude" / "Tokens" / "castmorphic-subtitles-token"
 
 
 def _github_token():
@@ -154,7 +154,7 @@ class Api:
             _download_state["progress"] = 0.0
             try:
                 target_dir = os.path.dirname(appimage_path)
-                fd, tmp_path = tempfile.mkstemp(dir=target_dir, prefix=".ytsubs-update-")
+                fd, tmp_path = tempfile.mkstemp(dir=target_dir, prefix=".castmorphic-subtitles-update-")
                 try:
                     headers = {"Accept": "application/octet-stream"}
                     token = _github_token()
@@ -353,7 +353,7 @@ def main():
     api = Api()
     ui_dir = base_dir() / "ui"
     webview.create_window(
-        "YT Subs",
+        "Castmorphic Subtitles",
         str(ui_dir / "index.html"),
         js_api=api,
         width=880,

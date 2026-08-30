@@ -1,5 +1,5 @@
 #!/bin/bash
-# Rebuilds build/ytsubs-x86_64.AppImage from app.py + ui/.
+# Rebuilds build/castmorphic-subtitles-x86_64.AppImage from app.py + ui/.
 #
 # Requires: python3, pip (python3 -m ensurepip), and either a cached
 # electron-builder AppImage runtime (any runtime-x64 + mksquashfs under
@@ -19,16 +19,16 @@ mkdir -p "$APPDIR/usr/app" "$APPDIR/usr/lib/pyapp"
 
 cp -r app.py ui "$APPDIR/usr/app/"
 cp packaging/AppRun "$APPDIR/AppRun"
-cp packaging/ytsubs.desktop "$APPDIR/ytsubs.desktop"
-cp packaging/ytsubs.png "$APPDIR/ytsubs.png"
+cp packaging/castmorphic-subtitles.desktop "$APPDIR/castmorphic-subtitles.desktop"
+cp packaging/castmorphic-subtitles.png "$APPDIR/castmorphic-subtitles.png"
 chmod +x "$APPDIR/AppRun"
 
 # A build venv is preferred, but some hosts ship a python3 without ensurepip
 # (openSUSE among them), so fall back to any pip we can actually reach --
 # including build/venv, kept from an earlier build for exactly this reason.
 PIP=""
-if python3 -m venv --clear /tmp/ytsubs-build-venv >/dev/null 2>&1; then
-  PIP="/tmp/ytsubs-build-venv/bin/python -m pip"
+if python3 -m venv --clear /tmp/castmorphic-subtitles-build-venv >/dev/null 2>&1; then
+  PIP="/tmp/castmorphic-subtitles-build-venv/bin/python -m pip"
 elif [ -x build/venv/bin/python ]; then
   # Invoked as `python -m pip`: the venv's pip script has a stale shebang from
   # when this repo lived at a different path.
@@ -47,11 +47,11 @@ echo "Using pip: $PIP"
 # the Qt modules this app never loads.
 $PIP install --quiet --upgrade --target "$APPDIR/usr/lib/pyapp" --no-compile \
   pywebview yt-dlp pip requests qtpy PySide6-Essentials PySide6-Addons
-rm -rf /tmp/ytsubs-build-venv
+rm -rf /tmp/castmorphic-subtitles-build-venv
 
 python3 packaging/prune-qt.py "$APPDIR/usr/lib/pyapp"
 
-ln -sf ytsubs.png "$APPDIR/.DirIcon"
+ln -sf castmorphic-subtitles.png "$APPDIR/.DirIcon"
 
 # The image has to be zstd, so an mksquashfs that can only do gzip/xz is no
 # use here -- older cached copies are exactly that.
@@ -92,15 +92,15 @@ if [ -z "$MKSQ" ] || [ -z "$RUNTIME" ]; then
   echo "Falling back to appimagetool on PATH…"
   echo "WARNING: verify the result actually launches — appimagetool may embed a FUSE2 runtime."
   command -v appimagetool >/dev/null || { echo "Need mksquashfs+runtime-x64 (from an electron-builder cache) or appimagetool on PATH"; exit 1; }
-  ARCH=x86_64 appimagetool "$APPDIR" build/ytsubs-x86_64.AppImage
+  ARCH=x86_64 appimagetool "$APPDIR" build/castmorphic-subtitles-x86_64.AppImage
 else
   # zstd, not xz: the FUSE-free runtime's squashfuse only understands zlib
   # and zstd, and an xz image mounts nowhere.
-  rm -f build/app.squashfs build/ytsubs-x86_64.AppImage
+  rm -f build/app.squashfs build/castmorphic-subtitles-x86_64.AppImage
   "$MKSQ" "$APPDIR" build/app.squashfs -root-owned -noappend -quiet -comp zstd -Xcompression-level 19
-  cat "$RUNTIME" build/app.squashfs > build/ytsubs-x86_64.AppImage
+  cat "$RUNTIME" build/app.squashfs > build/castmorphic-subtitles-x86_64.AppImage
   rm -f build/app.squashfs
 fi
 
-chmod +x build/ytsubs-x86_64.AppImage
-echo "Built build/ytsubs-x86_64.AppImage"
+chmod +x build/castmorphic-subtitles-x86_64.AppImage
+echo "Built build/castmorphic-subtitles-x86_64.AppImage"

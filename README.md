@@ -1,4 +1,4 @@
-# YT Subs
+# Castmorphic Subtitles
 
 A tiny Linux desktop app: paste a YouTube URL, pick a subtitle language
 (English listed first), pick a format, download just the subtitle file.
@@ -6,6 +6,10 @@ It never downloads the video itself. `skip_download` is hardcoded on in
 `app.py`.
 
 Ships as a single AppImage, no install, no Docker, no VPS.
+
+Part of [Castmorphic](https://castmorphic.com), the hosted podcasting
+service, and carries its name, colours and mark. The app itself is
+free, standalone, and needs no Castmorphic account.
 
 ## Features
 
@@ -27,8 +31,8 @@ Ships as a single AppImage, no install, no Docker, no VPS.
 ## Run it
 
 ```
-chmod +x ytsubs-x86_64.AppImage
-./ytsubs-x86_64.AppImage
+chmod +x castmorphic-subtitles-x86_64.AppImage
+./castmorphic-subtitles-x86_64.AppImage
 ```
 
 ### System requirements
@@ -44,10 +48,10 @@ ABI. Every current Linux desktop ships one. If it's missing or too old,
 `AppRun` says so in a dialog rather than failing silently.
 
 That self-containment is what makes the download ~145MB instead of
-~6MB. Up to v1.1.1 the app borrowed the host's GTK WebKit2 stack to
-stay small, and offered a one-click install when it wasn't there --
-but an AppImage that asks you to install something is the exact thing
-an AppImage is supposed to avoid.
+~6MB. An earlier build borrowed the host's GTK WebKit2 stack to stay
+small, and offered a one-click install when it wasn't there -- but an
+AppImage that asks you to install something is the exact thing an
+AppImage is supposed to avoid.
 
 ## Keeping yt-dlp current
 
@@ -55,16 +59,16 @@ The yt-dlp badge in the header shows:
 
 - **green**: up to date
 - **amber**, with an **Update** button: a newer yt-dlp is out, click it
-  to install the update (via pip, into `~/.local/share/ytsubs/pylibs`,
+  to install the update (via pip, into `~/.local/share/castmorphic-subtitles/pylibs`,
   which takes priority over the version frozen into the AppImage), then
   restart the app
 - **grey**: couldn't reach PyPI to check
 
 ## Keeping the app itself current
 
-`ytsubs` is a public repo, so the update check works with no credential
+`castmorphic-subtitles` is a public repo, so the update check works with no credential
 at all. If a repo-scoped GitHub token happens to be sitting at
-`9-Claude/Tokens/ytsubs-token` in the maintainer's home directory, it's
+`9-Claude/Tokens/castmorphic-subtitles-token` in the maintainer's home directory, it's
 used as a bearer token to avoid the low unauthenticated GitHub API rate
 limit; on anyone else's machine that path just won't exist, and the
 check runs unauthenticated instead.
@@ -75,7 +79,7 @@ check runs unauthenticated instead.
 ./build.sh
 ```
 
-Regenerates `build/ytsubs-x86_64.AppImage` from `app.py` and `ui/`.
+Regenerates `build/castmorphic-subtitles-x86_64.AppImage` from `app.py` and `ui/`.
 Source for the AppImage wrapper (AppRun script, .desktop file, icon)
 lives in `packaging/`.
 
@@ -111,17 +115,17 @@ one `.AppImage` attached).
 3. Commit, tag `vX.Y.Z`, push.
 4. Copy the build to a version-stamped name, then upload both:
    ```
-   cp build/ytsubs-x86_64.AppImage build/ytsubs-X.Y.Z-x86_64.AppImage
+   cp build/castmorphic-subtitles-x86_64.AppImage build/castmorphic-subtitles-X.Y.Z-x86_64.AppImage
    gh release create vX.Y.Z \
-     build/ytsubs-x86_64.AppImage \
-     build/ytsubs-X.Y.Z-x86_64.AppImage \
+     build/castmorphic-subtitles-x86_64.AppImage \
+     build/castmorphic-subtitles-X.Y.Z-x86_64.AppImage \
      --title vX.Y.Z --notes "..."
    ```
    (with `GH_TOKEN` set to a token that has write access to this repo).
 
 Between steps 2 and 3, **launch the built AppImage and check the window
 actually opens.** A successful build proves nothing about whether it
-runs -- that's how the broken v1.1.0 release went out.
+runs -- that is exactly how a broken release once went out.
 
 ## Layout
 
