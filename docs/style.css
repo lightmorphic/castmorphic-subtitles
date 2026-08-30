@@ -225,10 +225,26 @@ h2 {
   margin: 0 0 40px;
 }
 
+/* These really are a list and a set of definitions, which is how machines
+   lift them out cleanly. The markers and default spacing go, the look stays. */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.format-list dt {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.format-list dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--muted-fg);
 }
 
 .feature {
@@ -329,3 +345,13 @@ footer .family {
   color: var(--muted-fg);
   font-size: 0.9375rem;
 }
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-bottom: 14px;
+}
+.footer-nav a { text-decoration: none; }
+.footer-nav a:hover { color: var(--fg); }

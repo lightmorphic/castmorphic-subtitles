@@ -38,6 +38,7 @@
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Linux",
       "softwareVersion": "1.0.0",
+      "dateModified": "2026-08-30",
       "downloadUrl": "https://github.com/lightmorphic/castmorphic-subtitles/releases/latest/download/castmorphic-subtitles-x86_64.AppImage",
       "softwareRequirements": "Linux with python3 3.10 or newer",
       "screenshot": "https://subtitles.castmorphic.com/images/screenshot-dark.png",
@@ -136,59 +137,59 @@
   <section id="features">
     <h2>Small on purpose</h2>
     <p class="section-lede">No account, no telemetry, no browser required. One window, one job.</p>
-    <div class="feature-grid">
-      <div class="feature">
+    <ul class="feature-grid">
+      <li class="feature">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         </div>
         <h3>Subtitles only</h3>
         <p>The video track is never requested from YouTube. Nothing to wait for, nothing large to store.</p>
-      </div>
-      <div class="feature">
+      </li>
+      <li class="feature">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
         <h3>English listed first</h3>
         <p>Every available language shows up, manual and auto-generated tracks both included, English sorted to the top.</p>
-      </div>
-      <div class="feature">
+      </li>
+      <li class="feature">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
         </div>
         <h3>Keeps itself current</h3>
         <p>Checks yt-dlp and its own version every time it starts. When YouTube changes something, an update is one click away.</p>
-      </div>
-      <div class="feature">
+      </li>
+      <li class="feature">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </div>
         <h3>Light and dark</h3>
         <p>Follows the desktop by default, with a toggle if it guesses wrong.</p>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 
   <section id="formats">
     <h2>Four formats, one download</h2>
     <p class="section-lede">Pick the one that fits what you're doing with it.</p>
-    <div class="feature-grid">
+    <dl class="feature-grid format-list">
       <div class="feature">
-        <h3>SRT</h3>
-        <p>Standard subtitle file with timestamps. Works everywhere.</p>
+        <dt>SRT</dt>
+        <dd>Standard subtitle file with timestamps. Works everywhere.</dd>
       </div>
       <div class="feature">
-        <h3>VTT</h3>
-        <p>WebVTT, the format most web video players expect natively.</p>
+        <dt>VTT</dt>
+        <dd>WebVTT, the format most web video players expect natively.</dd>
       </div>
       <div class="feature">
-        <h3>TXT</h3>
-        <p>Plain transcript. Timestamps and formatting stripped out, just the words.</p>
+        <dt>TXT</dt>
+        <dd>Plain transcript. Timestamps and formatting stripped out, just the words.</dd>
       </div>
       <div class="feature">
-        <h3>Raw</h3>
-        <p>Whatever YouTube actually served, unconverted.</p>
+        <dt>Raw</dt>
+        <dd>Whatever YouTube actually served, unconverted.</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
   <section id="faq">
@@ -238,7 +239,15 @@
 </main>
 
 <footer>
-  <p><a href="https://github.com/lightmorphic/castmorphic-subtitles">Source on GitHub</a> · Free software</p>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#top">Top</a>
+    <a href="#features">Features</a>
+    <a href="#formats">Formats</a>
+    <a href="#faq">FAQ</a>
+    <a href="#download">Download</a>
+    <a href="https://github.com/lightmorphic/castmorphic-subtitles">Source on GitHub</a>
+  </nav>
+  <p>Free software · Version 1.0.0 · Page updated <time datetime="2026-08-30">30 August 2026</time></p>
   <p class="family">Part of <a href="https://castmorphic.com">Castmorphic</a>, hosted podcasting from Lightmorphic.</p>
 </footer>
 

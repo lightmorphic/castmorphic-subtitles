@@ -1,0 +1,39 @@
+# Castmorphic Subtitles
+
+> A free Linux desktop app that downloads a YouTube video's subtitles in
+> SRT, VTT, TXT, or Raw format. The video itself is never downloaded.
+
+Castmorphic Subtitles is a single-window desktop app for Linux, shipped as
+one AppImage. You paste a YouTube URL, it lists every subtitle language the
+video has (manual and auto-generated, English first), you pick a language
+and a format, and it saves the subtitle file.
+
+Skipping the video download is hardcoded on and cannot be switched off, so
+the video track is never requested from YouTube and nothing large is stored.
+
+## Formats
+
+- SRT: standard subtitle file with timestamps, works everywhere.
+- VTT: WebVTT, the format most web video players expect natively.
+- TXT: plain transcript, timestamps and formatting stripped out.
+- Raw: whatever YouTube served, unconverted.
+
+## Requirements
+
+Linux, plus python3 version 3.10 or newer, which current Linux desktops
+already ship. The window, the browser engine and the Python packages all
+travel inside the AppImage. There is nothing to install, no Docker and no
+account. It checks yt-dlp and its own version every time it starts.
+
+## Licence and privacy
+
+Free software. No account, no telemetry. The app talks to YouTube to fetch
+subtitles and to GitHub to check for its own updates, and to nothing else.
+
+## Links
+
+- Site: https://subtitles.castmorphic.com/
+- Source and releases: https://github.com/lightmorphic/castmorphic-subtitles
+- Part of Castmorphic, hosted podcasting from Lightmorphic: https://castmorphic.com
+
+Last updated: 2026-08-30
