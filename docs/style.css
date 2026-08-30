@@ -355,3 +355,6 @@ footer .family {
 }
 .footer-nav a { text-decoration: none; }
 .footer-nav a:hover { color: var(--fg); }
+
+/* The one place the source is mentioned, kept quiet at the very bottom. */
+footer .source { margin-top: 0.35rem; }

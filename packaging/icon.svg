@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <!-- Castmorphic's three-bar mark, in the family accent on the family navy. -->
-  <rect width="256" height="256" rx="48" fill="#111827"/>
-  <rect x="40" y="40" width="176" height="45" rx="22.5" fill="#FF5721"/>
-  <rect x="40" y="105.5" width="73" height="45" rx="22.5" fill="#FF5721"/>
-  <rect x="40" y="171" width="176" height="45" rx="22.5" fill="#FF5721"/>
+  <!-- An empty screen with captions in it: the frame carries no picture,
+       because the app never fetches one. Castmorphic's palette and rounded
+       bars, but its own mark rather than the parent's. -->
+  <rect width="256" height="256" rx="56" fill="#111827"/>
+  <rect x="45" y="61" width="166" height="134" rx="24"
+        fill="none" stroke="#FFFFFF" stroke-opacity="0.26" stroke-width="10"/>
+  <rect x="68" y="118" width="120" height="17" rx="8.5" fill="#FF5721"/>
+  <rect x="92" y="155" width="72" height="17" rx="8.5" fill="#FF5721"/>
 </svg>
