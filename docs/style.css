@@ -358,3 +358,7 @@ footer .family {
 
 /* The one place the source is mentioned, kept quiet at the very bottom. */
 footer .source { margin-top: 0.35rem; }
+
+/* The all-apps launcher brings its own styling; this only keeps it on the
+   same line as the rest of the menu. */
+.nav-links #all-apps { display: flex; align-items: center; }
