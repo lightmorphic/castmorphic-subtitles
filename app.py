@@ -21,7 +21,6 @@ UPDATE_ASSET_NAME = "castmorphic-subtitles-x86_64.AppImage"
 APP_DIR = Path.home() / ".local" / "share" / "castmorphic-subtitles"
 LIB_DIR = APP_DIR / "pylibs"
 LIB_DIR.mkdir(parents=True, exist_ok=True)
-PREFS_FILE = APP_DIR / "prefs.json"
 
 # A user-writable copy of yt-dlp, if one has been installed by the in-app
 # updater, takes priority over the version frozen into the AppImage.
@@ -296,23 +295,6 @@ class Api:
     def default_download_dir(self):
         d = Path.home() / "Downloads"
         return str(d if d.exists() else Path.home())
-
-    def get_theme(self):
-        # WebKitGTK doesn't expose localStorage for file:// pages, so the
-        # theme choice is persisted here instead of in browser storage.
-        try:
-            with open(PREFS_FILE, encoding="utf-8") as f:
-                return json.load(f).get("theme")
-        except Exception:
-            return None
-
-    def set_theme(self, theme):
-        try:
-            with open(PREFS_FILE, "w", encoding="utf-8") as f:
-                json.dump({"theme": theme}, f)
-            return {"ok": True}
-        except Exception as e:
-            return {"ok": False, "error": str(e)}
 
     def get_clipboard_text(self):
         # pywebview suppresses the browser's own right-click menu (so it can't

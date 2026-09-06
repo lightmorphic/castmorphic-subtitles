@@ -7,38 +7,21 @@
 }
 
 :root {
-  color-scheme: light dark;
-  --bg: #ffffff;  --fg: #09090b;
-  --panel: #ffffff;  --panel-border: rgba(24, 24, 40, 0.10);
-  --border: #e4e4e7;  --muted: #f4f4f5;  --muted-fg: #71717a;
-  /* The muted grey clears 4.5:1 on white but only reaches 4.4:1 on the
-     muted panel, so text sitting on that panel gets its own darker shade. */
-  --muted-fg-on-muted: #6d6d76;
-  --shadow-panel: 0 1px 2px rgba(24,24,40,.05), 0 8px 24px -16px rgba(24,24,40,.18);
+  color-scheme: dark;
+  --bg: #09090b;  --fg: #fafafa;
+  --panel: #1b1d29;  --panel-border: rgba(255,255,255,.09);
+  --border: #27272a;  --muted: #1c1c1f;  --muted-fg: #a1a1aa;
+  --shadow-panel: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px -16px rgba(0,0,0,.6);
 
-  --accent: #ff5721;  --accent-hover: #e04d1d;  --on-accent: #471809;
-  --accent-container: #ffebe4;  --on-accent-container: #61210d;
+  --accent: #ff5721;  --accent-hover: #ff6b3c;  --on-accent: #471809;
+  --accent-container: #4d1a0a;  --on-accent-container: #ffb39b;
 
   --brand-navy: #111827;
-  --link: #c4400f;
-  --success: #38813a;  --success-bg: #f2f9f3;
+  --link: #ff8f68;
+  --success: #4bae4f;  --success-bg: #102611;
 
   --radius: 0.875rem;
   --panel-radius: 1.375rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #09090b;  --fg: #fafafa;
-    --panel: #1b1d29;  --panel-border: rgba(255,255,255,.09);
-    --border: #27272a;  --muted: #1c1c1f;  --muted-fg: #a1a1aa;
-    --muted-fg-on-muted: #a1a1aa;
-    --shadow-panel: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px -16px rgba(0,0,0,.6);
-    --accent-hover: #ff6b3c;
-    --accent-container: #4d1a0a;  --on-accent-container: #ffb39b;
-    --link: #ff8f68;
-    --success: #4bae4f;  --success-bg: #102611;
-  }
 }
 
 * { box-sizing: border-box; }
@@ -286,7 +269,7 @@ h2 {
 .faq h3:first-child { margin-top: 0; }
 .faq p { margin: 0; color: var(--muted-fg); }
 .faq code {
-  color: var(--muted-fg-on-muted);
+  color: var(--muted-fg);
   background: var(--muted);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -310,7 +293,7 @@ h2 {
   max-width: 56ch;
   text-align: left;
   font-size: 0.875rem;
-  color: var(--muted-fg-on-muted);
+  color: var(--muted-fg);
   background: var(--muted);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
@@ -362,3 +345,31 @@ footer .source { margin-top: 0.35rem; }
 /* The all-apps launcher brings its own styling; this only keeps it on the
    same line as the rest of the menu. */
 .nav-links #all-apps { display: flex; align-items: center; }
+
+/* Long-form legal pages: one readable column. */
+main.prose { max-width: 68ch; padding-top: 56px; padding-bottom: 24px; }
+main.prose h1 { margin-bottom: 16px; }
+main.prose h2 { font-size: 1.375rem; margin: 40px 0 10px; }
+main.prose p, main.prose li { color: var(--muted-fg); }
+main.prose .lede { margin-bottom: 8px; }
+main.prose ul { padding-left: 1.25rem; }
+main.prose li { margin-bottom: 10px; }
+main.prose strong { color: var(--fg); }
+
+/* The legal sub-footer: company details left, the five pages right. */
+.sub-foot {
+  max-width: 1080px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 24px 0;
+  border-top: 1px solid var(--panel-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  align-items: baseline;
+  justify-content: space-between;
+  text-align: left;
+}
+.sub-foot p { margin: 0; font-size: 0.8125rem; color: var(--muted-fg); max-width: 60ch; }
+.sub-foot-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.sub-foot-links a { font-size: 0.8125rem; color: var(--muted-fg); text-decoration: none; }
+.sub-foot-links a:hover { color: var(--fg); text-decoration: underline; }

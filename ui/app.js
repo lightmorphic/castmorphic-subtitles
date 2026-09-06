@@ -168,33 +168,6 @@ async function downloadSubtitles() {
   }
 }
 
-function systemPrefersDark() {
-  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
-function applyTheme(theme) {
-  if (theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-  } else {
-    document.documentElement.removeAttribute("data-theme");
-  }
-}
-
-async function initTheme() {
-  try {
-    const saved = await window.pywebview.api.get_theme();
-    applyTheme(saved);
-  } catch (e) {
-    // fall back to the OS preference (already handled by CSS media queries)
-  }
-  el("themeToggle").addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || (systemPrefersDark() ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
-    applyTheme(next);
-    window.pywebview.api.set_theme(next).catch(() => {});
-  });
-}
-
 function initPasteMenu() {
   const menu = el("pasteMenu");
   const input = el("urlInput");
@@ -327,7 +300,6 @@ window.addEventListener("pywebviewready", () => {
   // of the UI from wiring up (a WebKit quirk like a missing browser API
   // has broken every listener registered after it here before).
   const steps = [
-    initTheme,
     initPasteMenu,
     initAppUpdate,
     refreshYtdlpBadge,

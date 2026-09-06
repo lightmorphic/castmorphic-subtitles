@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessibility | Castmorphic Subtitles</title>
+<meta name="description" content="What this site and app get right for accessibility, what falls short, and how to report a barrier." />
+<link rel="canonical" href="https://subtitles.castmorphic.com/accessibility.html" />
+<meta name="theme-color" content="#ff5721" />
+<link rel="icon" href="images/favicon.png" />
+<link rel="preload" href="fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Main">
+  <a class="nav-brand" href="/">
+    <img src="images/favicon.png" alt="" width="28" height="28" />
+    Castmorphic Subtitles
+  </a>
+  <div class="nav-links">
+    <a href="/#features" class="nav-label">Features</a>
+    <a href="/#formats" class="nav-label">Formats</a>
+    <a href="/#faq" class="nav-label">FAQ</a>
+    <a href="/#download" class="nav-cta">Download</a>
+    <div id="all-apps"></div>
+  </div>
+</nav>
+
+<main id="main" class="prose">
+  <p class="eyebrow">Small print</p>
+  <h1>Accessibility</h1>
+  <p class="lede">What is genuinely true today, and what is not, said plainly rather than claimed.</p>
+  <h2>What we aim for</h2>
+  <p>
+    WCAG 2.2 at level AA, for both this website and the app. We are a very
+    small company and we have not paid for a formal audit, so treat what
+    follows as an honest self-assessment rather than a certificate.
+  </p>
+
+  <h2>What is already true of this site</h2>
+  <ul>
+    <li>Every colour pair used for text was measured against its background and meets the AA contrast ratio.</li>
+    <li>Everything is reachable by keyboard, and the focus outline is always visible. A skip link is the first thing you reach.</li>
+    <li>Headings run in order, images carry alt text, and the page declares its language.</li>
+    <li>The words are in the HTML itself, so a screen reader or a text browser gets the whole page without running any script.</li>
+    <li>Smooth scrolling is switched off automatically for anyone whose system asks for reduced motion.</li>
+    <li>It works down to a 375-pixel-wide screen without sideways scrolling or overlapping text.</li>
+  </ul>
+
+  <h2>What falls short</h2>
+  <ul>
+    <li>
+      <strong>There is no light theme.</strong> The site and the app are dark
+      only. Dark backgrounds suit some people and are harder for others,
+      particularly readers with astigmatism, and removing the choice removes
+      a genuine accommodation. Your browser's own reader mode or a
+      forced-colours setting will override our colours if you need it to.
+    </li>
+    <li>
+      The app has not been through a full screen-reader test. It is a small
+      window of standard buttons and lists and should behave, but we have not
+      verified that properly and would rather say so than imply we had.
+    </li>
+    <li>
+      The apps menu in the corner is drawn by a shared component we did not
+      write for this site. It reports itself correctly to assistive software,
+      but its behaviour is not ours to fix directly.
+    </li>
+  </ul>
+
+  <h2>Telling us about a barrier</h2>
+  <p>
+    If something here stops you doing what you came to do, please say so, and
+    be as specific as you can bear to be about what you were using and what
+    happened. Write to
+    <a href="mailto:complaints@lightmorphic.com">complaints@lightmorphic.com</a>.
+    You will get a reply within two working days, and we will tell you plainly
+    whether we can fix it and when.
+  </p>
+  <p>
+    If our answer is not good enough, the
+    <a href="/complaints.html">complaints page</a> sets out where to take it
+    next.
+  </p>
+</main>
+
+<footer>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/">Home</a>
+    <a href="/#features">Features</a>
+    <a href="/#formats">Formats</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#download">Download</a>
+  </nav>
+  <p class="family">Part of <a href="https://castmorphic.com">Castmorphic</a>, hosted podcasting from Lightmorphic.</p>
+  <p class="source"><a href="https://github.com/lightmorphic/castmorphic-subtitles">Source on GitHub</a></p>
+  <div class="sub-foot">
+    <p>&copy; Lightmorphic Ltd. Registered in England and Wales, company
+    number 17423646. Registered office: 82A James Carter Road, Mildenhall,
+    IP28 7DE.<br />
+    Page last updated <time datetime="2026-09-06">6 September 2026</time>.</p>
+    <nav class="sub-foot-links" aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/accessibility.html">Accessibility</a>
+      <a href="/complaints.html">Complaints</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="https://apps.lightmorphic.com/launcher.js" defer></script>
+
+</body>
+</html>
